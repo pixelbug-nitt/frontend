@@ -5,6 +5,6 @@ export const production = {
 }
 
 export const awsKeys = {
-    access: "AKIAJTRW6SORHT47MQIQ",
-    secret: "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"
+    access: "AKIAIA5PYJYRQYP6FEOA",
+    secret: "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"
 }
