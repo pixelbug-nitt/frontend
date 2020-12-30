@@ -214,6 +214,11 @@
   width:30% !important;
 }
 
+.file-input{
+  border: 0px !important;
+  padding-left: 0px !important;
+}
+
 /* Social media iconss ↓ */
 
 .socialCenter {

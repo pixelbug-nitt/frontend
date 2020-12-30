@@ -115,6 +115,73 @@ $(document).ready(function(){
             }
         })
     })
+
+    $(function() {
+        $('#emrForm').validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },                
+                number: {
+                    required: true,
+                    minlength: 10
+                },
+                email: {
+                    required: true,
+                    email: true
+                }                
+            },
+            messages: {
+                name: {
+                    required: "come on, you have a name, don't you?",
+                    minlength: "your name must consist of at least 2 characters"
+                },               
+                number: {
+                    required: "we need your number to give you a callback!",
+                    minlength: "your Number must consist of at least 10 characters"
+                },
+                email: {
+                    required: "no email, no message"
+                }                         
+            },
+            submitHandler: function(form) {
+                $("#formMessage").text("Thank you for your request, but we are not taking event coverage requests now, cuz, you know, the obvious, college is not functioning.");
+                // $('#contactForm :input').attr('disabled', 'disabled');
+                //         $('#contactForm').fadeTo( "slow", 1, function() {
+                //             $(this).find(':input').attr('disabled', 'disabled');
+                //             $(this).find('label').css('cursor','default');
+                //             $('#success').fadeIn()
+                //             $('.modal').modal('hide');
+		        //         	$('#success').modal('show');
+                //         })
+
+
+                // $(form).ajaxSubmit({
+                //     type:"POST",
+                //     data: $(form).serialize(),
+                //     url:"contact_process.php",
+                //     success: function() {
+                //         $('#contactForm :input').attr('disabled', 'disabled');
+                //         $('#contactForm').fadeTo( "slow", 1, function() {
+                //             $(this).find(':input').attr('disabled', 'disabled');
+                //             $(this).find('label').css('cursor','default');
+                //             $('#success').fadeIn()
+                //             $('.modal').modal('hide');
+		        //         	$('#success').modal('show');
+                //         })
+                //     },
+                //     error: function() {
+                //         $('#contactForm').fadeTo( "slow", 1, function() {
+                //             $('#error').fadeIn()
+                //             $('.modal').modal('hide');
+		        //         	$('#error').modal('show');
+                //         })
+                //     }
+                // })
+            }
+        })
+    })
         
  })(jQuery)
 })

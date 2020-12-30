@@ -31,7 +31,8 @@ class Navbar extends React.Component {
                                                 </ul>
                                             </li> */}
                                             <NavLink to="/aurora" exact activeStyle={{color:'red'}}> <li><a className="overlineDeco">Aurora</a></li></NavLink> 
-                                            <NavLink to="/contact" exact activeStyle={{color:'red'}}> <li><a>Contact</a></li></NavLink>
+                                            {/* <NavLink to="/contact" exact activeStyle={{color:'red'}}> <li><a>Contact</a></li></NavLink> */}
+                                            <NavLink to="/editmyraw" exact activeStyle={{color:'red'}}> <li><a>Edit My Raw</a></li></NavLink>
                                            
                                         </ul>
                                     </nav>
