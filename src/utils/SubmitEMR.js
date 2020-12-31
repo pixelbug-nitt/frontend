@@ -10,11 +10,17 @@ function EditMyRaw() {
     const [email, setEmail] = useState(null);
     const [phone, setPhone] = useState(null);
     const [insta, setInsta] = useState(null);
+    const [form,setForm] = useState(true);
+    const [loading,setLoading] = useState(false);
+    const [success,setSuccess] = useState(false);
+    const [failure,setFailure] = useState(false);
 
     var imagelink = "";
 
     const submitFile = async (e) => {
         e.preventDefault();
+        setForm(false);
+        setLoading(true);
         try {
             if (!file) {
 
@@ -32,6 +38,8 @@ function EditMyRaw() {
             console.log("file uploaded || " + result.data.Location);
         } catch (error) {
             console.log("error while uploading " + error);
+            setLoading(false);
+            setFailure(true);
         }
     };
     const makeEntry = async () => {
@@ -55,8 +63,12 @@ function EditMyRaw() {
               const sheet = doc.sheetsById[SHEET_ID];
               const result = await sheet.addRow(row);
               console.log("Value inserted" + result);
+              setLoading(false);
+              setSuccess(true);
             } catch (e) {
               console.error('Error, i tried: ', e);
+              setLoading(false);
+              setFailure(true);
             }
           };
         
@@ -68,7 +80,8 @@ function EditMyRaw() {
 
   return (
     <div>    
-      <form className="form-contact" id="emrForm" onSubmit={submitFile} novalidate="novalidate">
+      { form ?  
+          <form className="form-contact" id="emrForm" onSubmit={submitFile} novalidate="novalidate">
             <div className="row">
                 <div className="col-sm-12">
                     <div className="form-group">
@@ -101,7 +114,24 @@ function EditMyRaw() {
                 <button type="submit" className="button button-contactForm boxed-btn">Send</button>
             </div>
         </form>       
-    </div>
+        : <div>
+            
+            { loading ? <div className="loader">
+                            <div className="preloader loading">
+                                <span className="slice"></span>
+                                <span className="slice"></span>
+                                <span className="slice"></span>
+                                <span className="slice"></span>
+                                <span className="slice"></span>      
+                                <span className="slice"></span>                      
+                            </div>
+                            <div><p>Uploading...</p></div>
+                        </div>: null }
+             <div className="submitStatus"> { success ? "Your image has been submitted successfully!" : ( failure ? "An error occured while uploading, please try again" : null) }</div>  
+            
+
+        </div> 
+    }    </div>
   );
 }
 
