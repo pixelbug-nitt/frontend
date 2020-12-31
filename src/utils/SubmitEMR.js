@@ -127,7 +127,7 @@ function EditMyRaw() {
                             </div>
                             <div><p>Uploading...</p></div>
                         </div>: null }
-             <div className="submitStatus"> { success ? "Your image has been submitted successfully!" : ( failure ? "An error occured while uploading, please try again" : null) }</div>  
+             <div className="submitStatus"> { success ? "🥳 Your image has been submitted successfully! 🥳 " : ( failure ? "😓 An error occured while uploading, please try again 😓" : null) }</div>  
             
 
         </div> 
