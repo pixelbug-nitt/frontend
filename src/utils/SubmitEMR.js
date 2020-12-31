@@ -9,6 +9,7 @@ function EditMyRaw() {
     const [name, setName] = useState(null);
     const [email, setEmail] = useState(null);
     const [phone, setPhone] = useState(null);
+    const [insta, setInsta] = useState(null);
 
     var imagelink = "";
 
@@ -21,7 +22,7 @@ function EditMyRaw() {
             }
             const formData = new FormData();
             formData.append('file', file[0]);
-            const result = await axios.post(`http://localhost:9000/test-upload`, formData, {
+            const result = await axios.post(`https://api.pixelbugnitt.com/test-upload`, formData, {
                 headers: {
                 'Content-Type': 'multipart/form-data',
                 },
@@ -59,14 +60,14 @@ function EditMyRaw() {
             }
           };
         
-          const newRow = { "Name": name, "Email": email, "Phone Number" :phone , "Link": imagelink };
+          const newRow = { "Name": name, "Email": email, "Phone Number" :phone, "Instagram ID": insta , "Link": imagelink };
         
           appendSpreadsheet(newRow);
 
     }
 
   return (
-    <div >    
+    <div>    
       <form className="form-contact" id="emrForm" onSubmit={submitFile} novalidate="novalidate">
             <div className="row">
                 <div className="col-sm-12">
@@ -82,6 +83,11 @@ function EditMyRaw() {
                 <div className="col-sm-6">
                     <div className="form-group">                    
                         <input className="form-control valid" onChange={event => setPhone(event.target.value)} name="number" id="number" type="tel"  placeholder="Whatsapp Number"/>
+                    </div>
+                </div>
+                <div className="col-sm-12">
+                    <div className="form-group">
+                        <input className="form-control valid" onChange={event => setInsta(event.target.value)} name="insta" id="insta" type="text"  placeholder="Your Instagram ID"/>
                     </div>
                 </div>
                 <div className="col-12">

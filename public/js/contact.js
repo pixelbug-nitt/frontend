@@ -130,6 +130,10 @@ $(document).ready(function(){
                 email: {
                     required: true,
                     email: true
+                },
+                insta: {
+                    required: true,
+                    minlength: 3
                 }                
             },
             messages: {
@@ -143,6 +147,10 @@ $(document).ready(function(){
                 },
                 email: {
                     required: "no email, no message"
+                },
+                insta: {
+                    required: "we need your insta id to tag you when we post",
+                    minlength: "your insta id must consist of at least 3 characters"
                 }                         
             },
             submitHandler: function(form) {
