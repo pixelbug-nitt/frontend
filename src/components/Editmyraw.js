@@ -41,12 +41,14 @@ class editmyraw extends React.Component{
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 offset-lg-1">
-                            <h3 className="contact-title">Fill this form to participate</h3>
+                        <h3 className="contact-title">Welcome to Edit My Raw</h3>
+                            <p>where your amazing pictures are given the attention and treatment from the eyes of the best editors from NIT Trichy. Please fill the form below to submit your picture and have it edited to perfection. <br/>Please ensure your submission doesn't violate any of the rules of the competition.</p>
+                            <br/>
                             <EditMyRaw />
                         </div>
                         <div className="col-lg-3"> 
                             <h2 className="contact-title">Rulebook</h2>                           
-                            <p className="sample-text" >Read the rulebook <a href="" target="_blank">here</a> before your submit the images</p> 
+                            <p className="sample-text" >Read the rulebook <a href="https://editmyraw.s3.ap-south-1.amazonaws.com/rulebook.png" target="_blank">here</a> before your submit the images</p> 
                             <br/>                                                   
                             <h2 className="contact-title">Contact us</h2>                          
                             <div className="media contact-info">

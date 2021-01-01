@@ -42,6 +42,8 @@ function FetchMembers(props){
             {   
                 items.map( member=>{
                     var year = new Date().getFullYear();
+                    var month = new Date().getMonth();
+                    if(month<5) year-=1;
                     if(props.memberType === "core"){
                         if(member.desig === "Core" && (member.batch > year))
                             return <div className="col-lg-6 col-md-6 coreMember ">
