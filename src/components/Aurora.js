@@ -12,7 +12,7 @@ class aurora extends React.Component{
         return (   
             <div>
                 <div className="bradcam_area ">
-                <div className="single_bradcam  d-flex align-items-center bradcam_bg_1 overlay pb-5 imageBGAurora">
+                    <div className="single_bradcam  d-flex align-items-center bradcam_bg_1 overlay pb-5 imageBGAurora">
                     <div className="container">
                             <div className="row align-items-center justify-content-center">
                             <div className="col-xl-12">
@@ -37,11 +37,30 @@ class aurora extends React.Component{
                                     </div>
                                 </section>
                             </div>
-                            </div>
+                        </div>
                     </div>                    
                 </div>                
-            </div>
-        <div className="brand_area black_bg pt-0">
+                </div>
+                <footer className="footer">
+                    <div className="footer_top">
+                        <div className="container">
+                            <div className="row justify-content-center">
+                                <div className="col-lg-6 col-md-8">
+                                    <div className="footer_widget">
+                                        <div className="address_details text-center">
+                                        
+                                            <h3 className="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">Aurora 2021</h3>
+                                            <h5 className="wow fadeInUp italicizee" data-wow-duration="1s" data-wow-delay=".3s">Coming Soon!</h5>
+                                            <p className="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Stay tuned to this page for more info!</p>
+                                            <a className="boxed-btn3 wow fadeInUp buttonDisabled" data-wow-duration="1s" data-wow-delay=".6s" href="#">Register</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>               
+                </footer>
+                <div className="brand_area black_bg pt-0">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
@@ -51,28 +70,7 @@ class aurora extends React.Component{
                 </div>
             </div>
         </div>
-            <footer className="footer">
-                <div className="footer_top">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-lg-6 col-md-8">
-                                <div className="footer_widget">
-                                    <div className="address_details text-center">
-                                       
-                                        <h3 className="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">Aurora 2021</h3>
-                                        <h5 className="wow fadeInUp italicizee" data-wow-duration="1s" data-wow-delay=".3s">Coming Soon!</h5>
-                                        <p className="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Stay tuned to this page for more info!</p>
-                                        <a className="boxed-btn3 wow fadeInUp buttonDisabled" data-wow-duration="1s" data-wow-delay=".6s" href="#">Register</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               
-            </footer>
-    
-        </div>
+            </div>
    )
     }
 }
