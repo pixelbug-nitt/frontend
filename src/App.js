@@ -4,6 +4,9 @@ import About from './components/About';
 import Home from './components/Home';
 import Members from './components/Members';
 import Contact from './components/Contact';
+import privacypolicy from './components/privacypolicy';
+import tos from './components/tos';
+import returnpolicy from './components/returnpolicy';
 import Editmyraw from './components/Editmyraw';
 import Editor from './components/EditorPortal';
 import Aurora from './components/Aurora';
@@ -37,20 +40,28 @@ class App extends React.Component {
                 {/* <Route path="/members/:id"  component={About}></Route> Future implementation */} 
                 <Route path="/aurora" exact component={Aurora}></Route>
                 <Route path="/contact" exact component={Contact}></Route>
-                <Route path="/editmyraw" exact component={Editmyraw}></Route>
+                <Route path="/editmyraw" exact component={Editmyraw}></Route>                
                 <Route path="/editor/:rawLink" exact component={Editor}></Route>
+                <Route path="/privacypolicy" exact component={privacypolicy}></Route>
+                <Route path="/termsofservice" exact component={tos}></Route>
+                <Route path="/returnpolicy" exact component={returnpolicy}></Route>
                 <Route path="/"  exact component={Home}></Route>
             </Switch>
             <footer className="footer">
             <div className="copy-right_text">
                 <div className="container">
                     <div className="row">
-                        <div className="col-xl-12 mt-30">
-                            <p className="copy_right text-center wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
+                        <div className="col-xl-6 mt-30">
+                            <p className="copy_right text-left wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
                             Website crafted with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://yagneshlp.me/" target="_blank" rel="noopener noreferrer">YLP</a>
                             </p>
                         </div>
-                    </div>
+                        <div className="col-xl-6 mt-30">
+                            <p className="copy_right text-right wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
+                            <a href="/privacypolicy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>  |  <a href="/termsofservice" target="_blank" rel="noopener noreferrer">Terms of Service</a>  |  <a href="/returnpolicy" target="_blank" rel="noopener noreferrer">Return Policy</a>
+                            </p>
+                        </div>
+                    </div>                    
                 </div>
             </div>
         </footer>
