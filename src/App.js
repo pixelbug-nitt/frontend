@@ -51,14 +51,9 @@ class App extends React.Component {
             <div className="copy-right_text">
                 <div className="container">
                     <div className="row">
-                        <div className="col-xl-6 mt-30">
-                            <p className="copy_right text-left wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
+                        <div className="col-xl-12 mt-30">
+                            <p className="copy_right text-center wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
                             Website crafted with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://yagneshlp.me/" target="_blank" rel="noopener noreferrer">YLP</a>
-                            </p>
-                        </div>
-                        <div className="col-xl-6 mt-30">
-                            <p className="copy_right text-right wow fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
-                            <a href="/privacypolicy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>  |  <a href="/termsofservice" target="_blank" rel="noopener noreferrer">Terms of Service</a>  |  <a href="/returnpolicy" target="_blank" rel="noopener noreferrer">Return Policy</a>
                             </p>
                         </div>
                     </div>                    
