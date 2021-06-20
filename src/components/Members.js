@@ -55,6 +55,15 @@ class members extends React.Component{
                                 </div>
                                 <div className="performer_heading">
                                     <h4>Yagnesh L P</h4>
+                                    <span>Alumni</span>                                    
+                                </div>
+                            </div>
+                            <div  className="single_performer wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                                <div data-tilt className="thumb">
+                                    <img src="img/priyanshu.jpg" className="webopsImg" alt=""/>
+                                </div>
+                                <div className="performer_heading">
+                                    <h4>Priyanshu Dangi</h4>
                                     <span>Head, WebOps</span>                                    
                                 </div>
                             </div>

@@ -41,12 +41,12 @@ class contact extends React.Component{
                             <div className="media contact-info">
                                 <span className="contact-info__icon"><i className="ti-mobile"></i></span>
                                 <div className="media-body">
-                                    <h3>P Srikar</h3>
-                                    <a href="tel:+91 8978510561">+91 8978510561</a>
-                                    <h3>T Ajay Shankar</h3> 
-                                    <a href="tel:+91 9790992343">+91 9790992343</a>                                    
-                                    <h3>Anvar M</h3>
-                                    <a href="tel:+91 81240 04834">+91 8124004834</a>                                    
+                                    <h3>Niteesh Kumar S</h3>
+                                    <a href="tel:+91 7708236408">+91 7708236408</a>
+                                    <h3>GSP PONNIRAIVAN</h3> 
+                                    <a href="tel:+91 7418621705">+91 7418621705</a>                                    
+                                    <h3>Hemgugan</h3>
+                                    <a href="tel:+91 7338750233">+91 7338750233</a>                                    
                                 </div>
                             </div>
                             <div className="media contact-info">
