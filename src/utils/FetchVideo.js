@@ -1,5 +1,7 @@
 import React , {useState , useEffect} from 'react';
 
+import { google_sheets_key } from '../config/config';
+
 //const mode = (props)
 
 function FetchMembers(props){
@@ -11,22 +13,24 @@ function FetchMembers(props){
 
     const fetchMembers = async () => {
         const data = await fetch(
-            "https://spreadsheets.google.com/feeds/cells/1A_fAFbjEjJnsOQOVbpSIR2ivOw3pIxHqlAE5XaD2r20/1/public/full?alt=json"
+            // "https://spreadsheets.google.com/feeds/cells/1A_fAFbjEjJnsOQOVbpSIR2ivOw3pIxHqlAE5XaD2r20/1/public/full?alt=json"
+            "https://sheets.googleapis.com/v4/spreadsheets/1A_fAFbjEjJnsOQOVbpSIR2ivOw3pIxHqlAE5XaD2r20/values/Sheet1?alt=json&key=" + google_sheets_key
             );
 
         const videos = await data.json();
         console.log(videos);
         var videoGallery = [];
-        var offset = { id: 1, title : 2, desc : 3, crew : 4};
-        for (var i=1;i<(videos.feed.entry.length/6);i++) {
-            videoGallery.splice(i,0,videoBuilder(videos.feed,i));
+        // var offset = { id: 1, title : 2, desc : 3, crew : 4};
+        for (var i=2;i<(videos.values.length);i++) {
+            // videoGallery.splice(i,0,videoBuilder(videos.feed,i));
+            videoGallery.push(videoBuilder(videos.values[i]))
         }
-        function videoBuilder(feed,seed){
+        function videoBuilder(feed){
             var member =  {
-                "id": feed.entry[(4*seed) + offset.id].content.$t,
-                "title": feed.entry[(4*seed) + offset.title].content.$t,
-                "desc": feed.entry[(4*seed) + offset.desc].content.$t,
-                "crew": feed.entry[(4*seed) + offset.crew].content.$t
+                "id": feed[0],
+                "title": feed[1],
+                "desc": feed[2],
+                "crew": feed[3],
             }        
             //console.log(member);
             return member;
