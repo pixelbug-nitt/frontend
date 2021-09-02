@@ -1,5 +1,7 @@
 import React , {useState , useEffect} from 'react';
 
+import { google_sheets_key } from '../config/config';
+
 //const mode = (props)
 
 function FetchAlumni(props){
@@ -17,30 +19,32 @@ function FetchAlumni(props){
 
     const fetchAlumni = async () => {
         const data = await fetch(
-            "https://spreadsheets.google.com/feeds/cells/1Y96TAPftOl9Annw48Habx6ZobWGENnKtLVVeAc1wBEE/1/public/full?alt=json"
+            // "https://spreadsheets.google.com/feeds/cells/1Y96TAPftOl9Annw48Habx6ZobWGENnKtLVVeAc1wBEE/1/public/full?alt=json",
+            "https://sheets.googleapis.com/v4/spreadsheets/1Y96TAPftOl9Annw48Habx6ZobWGENnKtLVVeAc1wBEE/values/Sheet1?alt=json&key=" + google_sheets_key
             );
 
         const members = await data.json();
         //console.log(members);
         var team=[];
         
-        var offset = { name: 0, dept : 1, batch:2, desig : 4, img : 6, cur:7, q1 : 8, q2: 9, q3: 10, q4:11 };
-        for (var i=1;i<(members.feed.entry.length/12);i++) {            
-            team.splice(i,0,memberBuilder(members.feed, i));
+        // var offset = { name: 0, dept : 1, batch:2, desig : 4, img : 6, cur:7, q1 : 8, q2: 9, q3: 10, q4:11 };
+        for (var i=1;i<(members.values.length);i++) {            
+            // team.splice(i,0,memberBuilder(members.feed, i));
+            team.push(memberBuilder(members.values[i]))
         }
 
-        function memberBuilder(feed,seed){
+        function memberBuilder(feed){
             var member =  {
-                "name": feed.entry[(12*seed) + offset.name].content.$t,
-                "dept": feed.entry[(12*seed) + offset.dept].content.$t,
-                "batch": feed.entry[(12*seed) + offset.batch].content.$t,
-                "desig": feed.entry[(12*seed) + offset.desig].content.$t,
-                "cur" : feed.entry[(12*seed) + offset.cur].content.$t,
-                "img": feed.entry[(12*seed) + offset.img].content.$t,
-                "q1": feed.entry[(12*seed) + offset.q1].content.$t,
-                "q2": feed.entry[(12*seed) + offset.q2].content.$t,
-                "q3": feed.entry[(12*seed) + offset.q3].content.$t,                
-                "q4": feed.entry[(12*seed) + offset.q4].content.$t
+                "name": feed[0],
+                "dept": feed[1],
+                "batch": feed[2],
+                "desig": feed[4],
+                "cur" : feed[7],
+                "img": feed[6],
+                "q1": feed[8],
+                "q2": feed[9],
+                "q3": feed[10],               
+                "q4": feed[11]
             }        
             //console.log(member);
             return member;
