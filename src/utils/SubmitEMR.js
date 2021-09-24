@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { GoogleSpreadsheet } from "google-spreadsheet";
-import {gcpSheetKeys} from "../var/Variables";
+import { gcpSheetKeys } from "../var/Variables";
 
 function EditMyRaw() {
 
@@ -10,10 +10,10 @@ function EditMyRaw() {
     const [email, setEmail] = useState(null);
     const [phone, setPhone] = useState(null);
     const [insta, setInsta] = useState(null);
-    const [form,setForm] = useState(true);
-    const [loading,setLoading] = useState(false);
-    const [success,setSuccess] = useState(false);
-    const [failure,setFailure] = useState(false);
+    const [form, setForm] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [failure, setFailure] = useState(false);
 
     var imagelink = "";
 
@@ -30,7 +30,7 @@ function EditMyRaw() {
             formData.append('file', file[0]);
             const result = await axios.post(`https://api.pixelbugnitt.com/test-upload`, formData, {
                 headers: {
-                'Content-Type': 'multipart/form-data',
+                    'Content-Type': 'multipart/form-data',
                 },
             });
             imagelink = result.data.Location;
@@ -53,34 +53,39 @@ function EditMyRaw() {
 
         const appendSpreadsheet = async (row) => {
             try {
-              await doc.useServiceAccountAuth({
-                client_email: CLIENT_EMAIL,
-                private_key: PRIVATE_KEY,
-              });
-              // loads document properties and worksheets
-              await doc.loadInfo();
-              //console.log(doc.title)
-              const sheet = doc.sheetsById[SHEET_ID];
-              const result = await sheet.addRow(row);
-              console.log("Value inserted" + result);
-              setLoading(false);
-              setSuccess(true);
+                await doc.useServiceAccountAuth({
+                    client_email: CLIENT_EMAIL,
+                    private_key: PRIVATE_KEY,
+                });
+                // loads document properties and worksheets
+                await doc.loadInfo();
+                //console.log(doc.title)
+                const sheet = doc.sheetsById[SHEET_ID];
+                const result = await sheet.addRow(row);
+                console.log("Value inserted" + result);
+                setLoading(false);
+                setSuccess(true);
             } catch (e) {
-              console.error('Error, i tried: ', e);
-              setLoading(false);
-              setFailure(true);
+                console.error('Error, i tried: ', e);
+                setLoading(false);
+                setFailure(true);
             }
-          };
-        
-          const newRow = { "Name": name, "Email": email, "Phone Number" :phone, "Instagram ID": insta , "Link": imagelink };
-        
-          appendSpreadsheet(newRow);
+        };
+
+        const newRow = { "Name": name, "Email": email, "Phone Number": phone, "Instagram ID": insta, "Link": imagelink };
+
+        appendSpreadsheet(newRow);
 
     }
 
-  return (
-    <div>    
-      { form ?  
+    const redirect = () => {
+        const link = 'https://docs.google.com/forms/d/e/1FAIpQLSdr4zTWY-LB7-iQNdoX48_bE-9gTQIXTCd7-ArRqmdwRgrNkw/viewform?usp=sf_link';
+        window.open(link, '_blank');
+    }
+
+    return (
+        <div style= {{marginBottom: "50px"}}>
+            {/* { form ?  
           <form className="form-contact" id="emrForm" onSubmit={submitFile} novalidate="novalidate">
             <div className="row">
                 <div className="col-sm-12">
@@ -131,8 +136,11 @@ function EditMyRaw() {
             
 
         </div> 
-    }    </div>
-  );
+    }   */}
+
+            <button onClick={redirect} className="button button-contactForm boxed-btn" style={{ margin: "Auto", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}>Upload your Entries</button>
+        </div>
+    );
 }
 
 export default EditMyRaw;
